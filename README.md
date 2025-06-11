@@ -78,8 +78,8 @@ focus_bud/
 │
 ├── focus_bud.py         # Main application file
 ├── README.md            # This file
-├── requirements.txt     # Optional: list of dependencies
-└── screenshot.png       # Optional: add UI screenshot here
+├── requirements.txt     # List of dependencies
+└── screenshot.png       # UI screenshot
 ```
 
 ---
