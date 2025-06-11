@@ -1,66 +1,122 @@
-# 🎯 Focus Bud
+# 🎯 Focus Bud - Gaze-Based Productivity Tracker
 
-**Focus Bud** is your real-time productivity partner that tracks your focus using your webcam, alerts you when you're distracted, and helps you stay on track during study or work sessions.
+**Focus Bud** is a desktop application built with Python that helps users monitor and improve their productivity using real-time gaze detection. It uses computer vision and facial landmark analysis to track whether a user is focused on their screen during a study or work session.
 
----
-
-## 🚀 Features
-
-- 🧠 **Real-Time Gaze-Based Tracking**: Uses your webcam to simulate gaze tracking and determine if you're focused or distracted.
-- ⏳ **Live Session Timers**:
-  - **Focused Time** increases as long as you're paying attention.
-  - **Distraction Time** accumulates while you're off-task.
-- 🔔 **Distraction Alerts**:
-  - **Beep Alert** when distracted for more than 3 seconds.
-  - **Pop-up Reminder** if distraction exceeds 7 seconds.
-- 📸 **Live Camera Feed**:
-  - Status and timers are displayed **on top of the camera feed** for constant feedback.
-- 🎨 **Clean GUI** built with **Tkinter** featuring:
-  - Aesthetic UI with centered layout
-  - Scrollable interface for smaller screens
+![Focus Bud Screenshot](screenshot.png) <!-- Replace with your actual screenshot file -->
 
 ---
 
-## 🧰 Tools & Technologies Used
+## 🔍 Features
 
-| Tool/Library     | Purpose                                       |
-|------------------|-----------------------------------------------|
-| `OpenCV`         | Access and process webcam frames              |
-| `Tkinter`        | Build the graphical user interface (GUI)      |
-| `PIL` (Pillow)   | Convert OpenCV frames to a format usable in Tkinter |
-| `winsound`       | Play alert sounds on distraction (Windows only) |
-| `Python`         | Core programming language                     |
+- 🔁 **Real-Time Gaze Tracking** using MediaPipe and OpenCV
+- 🎯 **Calibration** to adjust for individual face measurements
+- 🧠 **Focus Detection** based on eye landmark distances
+- 📊 **Live Productivity Stats** (Focused Time, Distraction Time, Remaining Time)
+- 🔁 **Circular Progress Visualization**
+- 🧾 **Session Report** with productivity percentage
+- 📦 **Scroll-friendly UI** using Tkinter
 
 ---
 
-## 📝 How It Works
-
-1. **Start Session**  
-   Click "Start Session" to begin a 25-minute focus timer.
-
-2. **Tracking Begins**  
-   - Webcam opens and starts monitoring your focus.
-   - It simulates focus detection by switching every few seconds.
-
-3. **Stay Focused**  
-   - A **beep** plays if you're distracted for 3+ seconds.
-   - A **pop-up reminder** appears if you're distracted for 7+ seconds.
-   - If you refocus, the session resumes without penalty.
-
-4. **Live Stats Displayed**  
-   - Status (FOCUSED / DISTRACTED)
-   - Focused Time
-   - Distraction Time
-   - Time Remaining
-
-5. **Stop Session**  
-   You can manually stop the session anytime. Once the full 25-minute session is completed, you're notified with a pop-up.
-
-
-
-## 📦 Requirements
+## 🛠 Technologies Used
 
 - Python 3.x
-- Required libraries:
-  ```bash
-  pip install opencv-python Pillow
+- OpenCV
+- MediaPipe
+- Pillow
+- Tkinter (GUI)
+- Winsound (for system beeps)
+
+---
+
+## 📦 Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/focus-bud.git
+cd focus-bud
+````
+
+### 2. Install Dependencies
+
+```bash
+pip install opencv-python mediapipe pillow
+```
+
+---
+
+## 🚀 Usage
+
+1. Run the application:
+
+```bash
+python focus_bud.py
+```
+
+2. Click **"Calibrate"** to adjust the system based on your face.
+3. Set your desired session duration (e.g., 25 minutes).
+4. Click **"Start Session"** to begin.
+5. Track your focus with the live video and progress ring.
+6. Once done, click **"Stop Session"** to see your focus report.
+
+---
+
+## 📸 How It Works
+
+* The app uses **MediaPipe Face Mesh** to detect key eye landmarks.
+* During calibration, it records the average horizontal distance between specific eye points.
+* During the session, if the distance changes significantly, the app considers the user distracted.
+* Time spent in focus and distraction is tracked and displayed.
+
+---
+
+## 📁 Project Structure
+
+```
+focus_bud/
+│
+├── focus_bud.py         # Main application file
+├── README.md            # This file
+├── requirements.txt     # Optional: list of dependencies
+└── screenshot.png       # Optional: add UI screenshot here
+```
+
+---
+
+## 📊 Example Output
+
+```
+Session Complete!
+
+Focused Time: 1320 seconds
+Distraction Time: 180 seconds
+Productivity Level: 88.0%
+```
+
+---
+
+## 🧠 Inspiration
+
+Built to help students and remote workers stay accountable and minimize distractions during work/study sessions.
+
+---
+
+## 🛡️ Disclaimer
+
+This tool is a prototype and may not be perfectly accurate in every lighting or facial orientation. It is designed for basic productivity awareness.
+
+---
+
+## 👩‍💻 Author
+
+**Gayatri Nagi**
+[LinkedIn](https://www.linkedin.com/in/gayatri-nagi-2a586325a/) • [GitHub](https://github.com/gayatrinagi)
+
+---
+
+## 📃 License
+
+This project is licensed under the MIT License. See `LICENSE` for more information.
+
+
